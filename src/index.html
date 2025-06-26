@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es">
+  @@include("partials/head.html")
+
+  <body class="font-inter antialiased text-slate-900">
+    @@include("partials/navbar.html")
+    @@include("partials/hero.html")
+    @@include("partials/partners.html")
+    @@include("partials/dashboard.html")
+    
+    @@include("partials/features.html")
+    @@include("partials/cta.html")
+    @@include("partials/testimonials.html")
+    @@include("partials/faq.html")
+    @@include("partials/footer.html")
+
+    <!-- 🔗 libs de terceros primero (defer para no bloquear) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script defer src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- 💡 tu script propio al final, también con defer -->
+    <script defer src="./scripts/scripts.js"></script>
+  </body>
+</html>

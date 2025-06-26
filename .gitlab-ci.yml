@@ -1,0 +1,48 @@
+default:
+  tags:
+    - docker
+
+variables:
+  HOST: hosting1.qrsof.com
+  HOST_USER: 
+  HOST_PASSWORD: 
+
+stages:
+  - build
+  - deploy
+
+build-web-app-prod:
+  image:
+    name: docker.io/node:18.13.0-alpine
+    pull_policy: if-not-present
+  stage: build
+  before_script:
+    - apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+    - apk add autoconf automake make gcc g++ libc6-compat
+    - apk add gcompat
+  script:
+    - yarn install
+    - npm run package
+  cache:
+    key:
+      files:
+        - yarn.lock
+    paths:
+      - node_modules
+  artifacts:
+    paths:
+      - dist
+
+
+deploy:
+  image:
+    name: alpine
+    pull_policy: if-not-present
+  stage: deploy
+  only:
+    - main
+  before_script:
+    - apk add lftp
+  script:
+    - sh ./sync.sh
+
