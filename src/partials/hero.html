@@ -1,20 +1,54 @@
-<section
-  id="hero"
-  class="relative bg-hero-grid pt-32 pb-24 text-center overflow-hidden"
->
-  <div class="max-w-3xl mx-auto px-4 relative z-10" data-aos="fade-up">
-    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
-      El control total de tus
-      <span class="text-primary">facturas internas</span> empresariales
-    </h1>
-    <p class="mt-4 text-sm md:text-base text-slate-600">
-      Simplifica, controla y automatiza tu gestión empresarial desde un solo
-      lugar.
-    </p>
-    <a
-      href="#features"
-      class="inline-flex items-center justify-center px-5 py-2 mt-8 inline-block text-sm font-medium rounded border border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white active:scale-95 transition"
-      >Explorar características</a
-    >
-  </div>
+<section id="hero"
+         class="relative isolate flex flex-col items-center justify-center
+                text-center min-h-[calc(100vh-4rem)] px-4 overflow-hidden
+                motion-safe:animate-[fade-in_1s_ease-out]"
+         data-aos="fade-up">
+
+  <!-- Fondo cuadrícula (zoom infinito) -->
+  <span class="absolute inset-x-0 bottom-0 h-[70vh] -z-30
+               bg-[url('/images/hero/cuadricula.svg')] bg-bottom bg-cover
+               opacity-95 [filter:brightness(110%)]
+               motion-safe:animate-[zoom-bg_6s_linear_infinite]"></span>
+
+  <!-- Velo superior -->
+  <span class="absolute inset-x-0 top-0 h-[7rem] -z-10 pointer-events-none
+               bg-gradient-to-b from-white/50 to-transparent"></span>
+
+  <!-- Velo intermedio -->
+  <span class="absolute inset-x-0 bottom-0 h-[70vh] -z-20 pointer-events-none
+               bg-gradient-to-b from-white/80 via-white/30 to-transparent"></span>
+
+  <!-- TÍTULO (fade-up AOS + slide-up-fade Tailwind) -->
+  <h1 class="font-roboto font-medium
+             text-[clamp(2.75rem,7vw,5.5rem)] leading-tight text-slate-900
+             [-webkit-text-stroke:1px_#5B4AF2]
+             [text-shadow:_-1px_0_#5B4AF2,0_1px_#5B4AF2,
+                          1px_0_#5B4AF2,0_-1px_#5B4AF2]
+             motion-safe:animate-[slide-up-fade_0.9s_ease-out_both]"
+      data-aos="fade-up" data-aos-delay="100">
+    El control total de tus facturas internas empresariales
+  </h1>
+
+  <!-- SUBTÍTULO -->
+  <p class="mt-10 mx-auto
+            max-w-none sm:max-w-4xl lg:max-w-6xl   
+            px-4 sm:px-6 text-base sm:text-lg lg:text-xl 
+            text-slate-600 leading-relaxed
+            motion-safe:animate-[slide-up-fade_0.9s_0.15s_ease-out_both]"
+     data-aos="fade-up" data-aos-delay="200">
+    Simplifica, controla y automatiza tu gestión empresarial desde un solo lugar.
+  </p>
+
+  <!-- CTA -->
+  <a href="#how"
+     class="mt-8 inline-flex items-center justify-center
+            px-6 py-2.5 rounded-md text-white text-sm font-medium
+            shadow-inner bg-gradient-to-b
+            from-[#6b5bff] via-[#503fe6] to-[#503fe6]
+            hover:brightness-105 active:scale-95 transition
+            motion-safe:animate-[slide-up-fade_0.9s_0.3s_ease-out_both]"
+     data-aos="fade-up" data-aos-delay="300">
+    Explorar características
+  </a>
 </section>
+

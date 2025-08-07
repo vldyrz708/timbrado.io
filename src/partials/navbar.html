@@ -1,106 +1,109 @@
-<!-- Navbar (hamburger) -->
+<!-- ░░░░░ Navbar timbrado.io ░░░░░ -->
 <header
-  class="fixed inset-x-0 top-0 z-50 bg-white/70 backdrop-blur border-b border-slate-100"
->
+  class="fixed inset-x-0 top-0 z-50 bg-white/85 backdrop-blur border-b border-slate-100">
   <div
-    class="max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between"
-  >
-    <!-- Brand: ícono + texto -->
-    <a href="/" class="flex items-center gap-2 group">
-      <img
-        src="../images/icon/icon-timbrado.png"
-        alt="Timbrado icono"
-        class="h-9 w-9"
-      />
+    class="mx-auto max-w-7xl flex h-16 items-center justify-between px-4 md:px-6">
 
-      <span
-        class="text-base sm:text-lg font-semibold tracking-tight text-slate-900"
-      >
-        timbrado<span class="text-violet-600 group-hover:text-red-500">.io</span>
+    <!-- Marca -->
+    <a href="/" class="flex items-center gap-2 group shrink-0">
+      <img src="/images/icon/icon-timbrado.png" alt="Icono timbrado.io"
+           class="h-9 w-9 select-none" />
+      <span class="text-base sm:text-lg font-semibold tracking-tight text-slate-900">
+        timbrado<span class="text-violet-600 group-hover:text-violet-700">.io</span>
       </span>
     </a>
 
-    <!-- Botón hamburguesa (móvil) -->
-    <button
-  id="menuToggle"
-  aria-label="Abrir menú"
-  class="sm:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-violet-600"
->
-  <!-- Icono hamburguesa -->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    class="h-6 w-6"
-  >
-    <path
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-      d="M4 6h16M4 12h16M4 18h16"
-    />
-  </svg>
-</button>
-
+    <!-- Hamburguesa (móvil) -->
+    <button id="menuToggle" aria-label="Abrir menú"
+            class="sm:hidden flex h-10 w-10 items-center justify-center
+                   rounded-md shadow-inner
+                   text-black bg-slate-50 active:scale-95 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round"
+           class="h-5 w-5">
+        <line x1="3" y1="6"  x2="21" y2="6"  />
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="3" y1="18" x2="21" y2="18" />
+      </svg>
+    </button>
 
     <!-- Menú -->
-    <nav
-      id="navMenu"
-      class="hidden sm:flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 text-sm font-medium absolute sm:static top-16 inset-x-0 bg-white/95 sm:bg-transparent backdrop-blur sm:backdrop-filter-none border-b sm:border-0 border-slate-100 p-4 sm:p-0 transition-transform origin-top sm:transform-none -translate-y-4 opacity-0 sm:opacity-100 sm:translate-y-0 duration-300 ease-out "
-    >
-      <ul class="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto">
+    <nav id="navMenu"
+         class="absolute top-16 inset-x-0 bg-white/90 backdrop-blur
+                border-b p-4 flex-col gap-4
+                hidden opacity-0 -translate-y-4
+                transition-all duration-300 ease-out
+                sm:static sm:flex sm:flex-row sm:items-center sm:gap-8
+                sm:bg-transparent sm:backdrop-filter-none sm:border-0 sm:opacity-100 sm:translate-y-0">
+      <ul class="flex flex-col sm:flex-row gap-4 sm:gap-8 w-full sm:w-auto">
+
+        <!-- Enlaces -->
         <li>
-          <a href="#hero" class="flex items-center gap-2 hover:text-primary ">
-            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M3 12h18M3 6h18M3 18h18" />
-            </svg>
-            <span>Inicio</span>
-          </a>
-        </li>
-        <li>
-          <a href="#how" class="flex items-center gap-2 hover:text-primary">
-            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2L2 7h20L12 2z" />
-            </svg>
-            <span>Cómo funciona</span>
-          </a>
-        </li>
-        <li>
-          <a href="#faq" class="flex items-center gap-2 hover:text-primary">
-            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            </svg>
-            <span>Preguntas</span>
-          </a>
-        </li>
-        <li>
-          <a href="#testi" class="flex items-center gap-2 hover:text-primary">
-            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-              <circle cx="12" cy="7" r="4" />
-              <path d="M5.5 21a6.5 6.5 0 0113 0" />
-            </svg>
-            <span>Testimonios</span>
+          <a href="#hero"
+             class="relative inline-block text-slate-700
+                    after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[2px]
+                    after:bg-[#5B4AF2] after:origin-left after:scale-x-0
+                    after:transition-transform after:duration-300
+                    hover:text-[#5B4AF2] hover:after:scale-x-100">
+            Inicio
           </a>
         </li>
 
-        <!-- Botón móvil -->
-        <li class="sm:hidden pt-2 bg">
-          <a
-            href="https://www.lemonsqueezy.com/"
-            class="inline-flex items-center justify-center w-full px-4 py-2 text-xs font-medium rounded text-white bg-gradient-to-br from-[#5B4AF2] to-[#170C3A] hover:opacity-90 active:scale-95 transition"
-          >
+        <li>
+          <a href="#how"
+             class="relative inline-block text-slate-700
+                    after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[2px]
+                    after:bg-[#5B4AF2] after:origin-left after:scale-x-0
+                    after:transition-transform after:duration-300
+                    hover:text-[#5B4AF2] hover:after:scale-x-100">
+            Cómo funciona
+          </a>
+        </li>
+
+        <li>
+          <a href="#faq"
+             class="relative inline-block text-slate-700
+                    after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[2px]
+                    after:bg-[#5B4AF2] after:origin-left after:scale-x-0
+                    after:transition-transform after:duration-300
+                    hover:text-[#5B4AF2] hover:after:scale-x-100">
+            Preguntas
+          </a>
+        </li>
+
+        <li>
+          <a href="#testi"
+             class="relative inline-block text-slate-700
+                    after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[2px]
+                    after:bg-[#5B4AF2] after:origin-left after:scale-x-0
+                    after:transition-transform after:duration-300
+                    hover:text-[#5B4AF2] hover:after:scale-x-100">
+            Testimonios
+          </a>
+        </li>
+
+        <!-- Botón móvil dentro del menú -->
+        <li class="sm:hidden pt-2">
+          <a href="#contacto"
+             class="mx-auto inline-flex items-center justify-center
+                    px-4 py-2 rounded-md text-xs font-medium text-white
+                    shadow-inner bg-gradient-to-b
+                    from-[#5B4AF2] via-[#5B4AF2] to-[#5B4AF2]
+                    hover:brightness-105 active:scale-95 transition">
             Contáctanos
           </a>
         </li>
       </ul>
     </nav>
 
-    <!-- Botón desktop -->
-    <a
-      href="https://www.lemonsqueezy.com/"
-      class="hidden sm:inline-flex items-center justify-center px-4 sm:px-5 py-2 text-xs sm:text-sm font-medium rounded text-white bg-gradient-to-br from-[#5B4AF2] to-[#170C3A] hover:opacity-90 active:scale-95 transition"
-    >
+    <!-- Botón escritorio -->
+    <a href="#contacto"
+       class="hidden sm:inline-flex items-center justify-center
+              px-4 sm:px-5 py-2 text-xs sm:text-sm font-medium text-white
+              rounded-md shadow-inner
+              bg-gradient-to-b from-[#5B4AF2] via-[#5B4AF2] to-[#5B4AF2]
+              hover:brightness-105 active:scale-95 transition">
       Contáctanos
     </a>
   </div>

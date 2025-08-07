@@ -44,9 +44,14 @@
     "node": ">=0.12"
   },
   "private": true,
+
   "scripts": {
-    "package": "gulp default"
+    "package": "gulp default",
+    "develop": "gulp develop",
+    "serve": "gulp serveDist",
+    "build": "gulp default"
   },
+
   "eslintConfig": {
     "extends": "google"
   }

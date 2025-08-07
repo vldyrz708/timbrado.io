@@ -31,15 +31,31 @@ function lint(cb) {
 
 exports.lint = lint;
 
-function images(cb) {
-    return src('src/images/**/*')
-        .pipe($.imagemin({
-            progressive: true,
-            interlaced: true
-        }))
-        .pipe(dest('dist/images'))
-        .pipe($.size({title: 'images'}))
+function images() {
+    const fs = require('fs-extra');
+    const path = require('path');
+    
+    return new Promise((resolve, reject) => {
+        try {
+            // Asegurar que el directorio de destino existe
+            fs.ensureDirSync('dist/images');
+            
+            // Copiar todas las imágenes recursivamente
+            fs.copySync('src/images', 'dist/images', {
+                overwrite: true,
+                errorOnExist: false
+            });
+            
+            console.log('✅ Images copied successfully');
+            resolve();
+        } catch (error) {
+            console.error('❌ Error copying images:', error);
+            reject(error);
+        }
+    });
 }
+exports.images = images;
+
 
 function copy(cb) {
     return src([
@@ -90,7 +106,6 @@ function styles() {
         .pipe(browserSync.stream());
 
 }
-
 // // Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.
 // // to enable ES2015 support remove the line `"only": "gulpfile.babel.js",` in the
 // // `.babelrc` file.
@@ -234,9 +249,7 @@ function develop() {
     watch(['src/**/*.js'], series(scripts, indexScript, reloadBrowser));
     watch(['src/images/**/*'], series(reloadBrowser));
 }
-
 exports.develop = series(clean, parallel(scriptsVendor, indexScript, scripts, styles, htmlDev), develop);
-
 // Build and serve the output from the dist build
 function serveDist() {
     browserSync.init({
@@ -252,13 +265,25 @@ function serveDist() {
         port: 3001
     });
 }
-
-exports.serveDist = series(serveDist);
-
-
-exports.default = series(clean, styles, parallel(html, scripts, scriptsVendor, indexScript, images, copy, copyFonts), series(copySwScripts, generateServiceWorkerTask));
-
-
+exports.serveDist = series(
+    clean,
+    styles,
+    images,
+    copy,
+    copyFonts,
+    html,
+    scripts,
+    scriptsVendor,
+    indexScript,
+    copyScriptsRaw,
+    serveDist
+  );
+  exports.default = series(
+    clean,
+    styles,
+    parallel(html, scripts, scriptsVendor, indexScript, images, copy, copyFonts, copyScriptsRaw),
+    series(copySwScripts, generateServiceWorkerTask)
+  );
 //
 // Run PageSpeed Insights
 async function pagespeedTask() {
@@ -269,18 +294,14 @@ async function pagespeedTask() {
         // Use a Google Developer API key if you have one: http://goo.gl/RkN0vE
         // key: 'YOUR_API_KEY'
     });
-
 }
-
 exports.pagespeed = pagespeedTask;
-
 //
 // // Copy over the scripts that are used in importScripts as part of the generate-service-worker task.
 function copySwScripts() {
     return src(['node_modules/sw-toolbox/sw-toolbox.js', 'src/scripts/sw/runtime-caching.js'])
         .pipe(dest('dist/scripts/sw'));
 }
-
 //
 // // See http://www.html5rocks.com/en/tutorials/service-worker/introduction/ for
 // // an in-depth explanation of what service workers are and why you should care.
@@ -290,7 +311,6 @@ function copySwScripts() {
 function generateServiceWorkerTask() {
     const rootDir = 'dist';
     const filepath = path.join(rootDir, 'service-worker.js');
-
     return swPrecache.write(filepath, {
         // Used to avoid cache conflicts when serving on localhost.
         cacheId: pkg.name || 'squars',
@@ -312,33 +332,27 @@ function generateServiceWorkerTask() {
         stripPrefix: rootDir + '/'
     });
 }
-
-
 function packageTask(cb) {
     // require modules
     var fs = require('fs');
     var archiver = require('archiver');
-
 // create a file to stream archive data to.
     var output = fs.createWriteStream(__dirname + '/' + pkg.name + '.zip');
     var archive = archiver('zip', {
         zlib: {level: 9}
     });
-
 // listen for all archive data to be written
 // 'close' event is fired only when a file descriptor is involved
     output.on('close', function () {
         console.log(archive.pointer() + ' total bytes');
         console.log('archiver has been finalized and the output file descriptor has closed.');
     });
-
 // This event is fired when the data source is drained no matter what was the data source.
 // It is not part of this library but rather from the NodeJS Stream API.
 // @see: https://nodejs.org/api/stream.html#stream_event_end
     output.on('end', function () {
         console.log('Data has been drained');
     });
-
 // good practice to catch warnings (ie stat failures and other non-blocking errors)
     archive.on('warning', function (err) {
         if (err.code === 'ENOENT') {
@@ -348,22 +362,21 @@ function packageTask(cb) {
             throw err;
         }
     });
-
 // good practice to catch this error explicitly
     archive.on('error', function (err) {
         throw err;
     });
-
 // pipe archive data to the file
     archive.pipe(output);
-
 // append files from a glob pattern
     archive.directory('dist', pkg.name);
-
 // finalize the archive (ie we are done appending files but streams have to finish yet)
 // 'close', 'end' or 'finish' may be fired right after calling this method so register to them beforehand
     archive.finalize();
     cb();
 }
-
-exports.package = series(packageTask);
+function copyScriptsRaw() {
+    return src('src/scripts/**/*')
+        .pipe(dest('dist/scripts'));
+}
+exports.copyScriptsRaw = copyScriptsRaw;
