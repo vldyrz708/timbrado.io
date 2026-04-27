@@ -1,23 +1,24 @@
 <!-- ░░░░░ Navbar timbrado.io ░░░░░ -->
 <header
-  class="fixed inset-x-0 top-0 z-50 bg-white/85 backdrop-blur border-b border-slate-100">
+  class="fixed inset-x-0 top-0 z-50 bg-white/70 backdrop-blur-[14px]">
   <div
-    class="mx-auto max-w-7xl flex h-16 items-center justify-between px-4 md:px-6">
+    class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6">
+    <div class="flex w-full items-center justify-between rounded-2xl border border-slate-200/80 bg-white/88 px-4 py-3 shadow-[0_18px_40px_-28px_rgba(15,23,42,0.28)] md:px-5">
 
     <!-- Marca -->
-    <a href="/" class="flex items-center gap-2 group shrink-0">
+    <a href="/" class="group flex shrink-0 items-center gap-3">
       <img src="/images/icon/icon-timbrado.png" alt="Icono timbrado.io"
            class="h-9 w-9 select-none" />
-      <span class="text-base sm:text-lg font-semibold tracking-tight text-slate-900">
+      <span class="text-base font-semibold tracking-tight text-slate-900 sm:text-lg">
         timbrado<span class="text-violet-600 group-hover:text-violet-700">.io</span>
       </span>
     </a>
 
     <!-- Hamburguesa (móvil) -->
     <button id="menuToggle" aria-label="Abrir menú"
-            class="sm:hidden flex h-10 w-10 items-center justify-center
-                   rounded-md shadow-inner
-                   text-black bg-slate-50 active:scale-95 transition">
+            class="sm:hidden flex h-10 w-10 items-center justify-center rounded-xl
+                   border border-slate-200 bg-white text-slate-900 shadow-sm
+                   active:scale-95 transition">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
            fill="none" stroke="currentColor" stroke-width="2"
            stroke-linecap="round" stroke-linejoin="round"
@@ -30,66 +31,67 @@
 
     <!-- Menú -->
     <nav id="navMenu"
-         class="absolute top-16 inset-x-0 bg-white/90 backdrop-blur
-                border-b p-4 flex-col gap-4
+         class="absolute inset-x-4 top-[5.4rem] rounded-2xl border border-slate-200 bg-white p-4 shadow-xl
+                backdrop-blur flex-col gap-4
                 hidden opacity-0 -translate-y-4
                 transition-all duration-300 ease-out
                 sm:static sm:flex sm:flex-row sm:items-center sm:gap-8
-                sm:bg-transparent sm:backdrop-filter-none sm:border-0 sm:opacity-100 sm:translate-y-0">
-      <ul class="flex flex-col sm:flex-row gap-4 sm:gap-8 w-full sm:w-auto">
+                sm:inset-auto sm:top-auto sm:rounded-none sm:border-0 sm:bg-transparent
+                sm:p-0 sm:shadow-none sm:backdrop-filter-none sm:opacity-100 sm:translate-y-0">
+      <ul class="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-7">
 
         <!-- Enlaces -->
         <li>
           <a href="#hero"
-             class="relative inline-block text-slate-700
+             class="relative inline-block rounded-lg px-2 py-1 text-sm font-medium text-slate-600 transition sm:px-0 sm:py-0
                     after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[2px]
                     after:bg-[#5B4AF2] after:origin-left after:scale-x-0
                     after:transition-transform after:duration-300
-                    hover:text-[#5B4AF2] hover:after:scale-x-100">
+                    hover:bg-slate-50 hover:text-[#5B4AF2] hover:after:scale-x-100 sm:hover:bg-transparent">
             Inicio
           </a>
         </li>
 
         <li>
           <a href="#how"
-             class="relative inline-block text-slate-700
+             class="relative inline-block rounded-lg px-2 py-1 text-sm font-medium text-slate-600 transition sm:px-0 sm:py-0
                     after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[2px]
                     after:bg-[#5B4AF2] after:origin-left after:scale-x-0
                     after:transition-transform after:duration-300
-                    hover:text-[#5B4AF2] hover:after:scale-x-100">
+                    hover:bg-slate-50 hover:text-[#5B4AF2] hover:after:scale-x-100 sm:hover:bg-transparent">
             Cómo funciona
           </a>
         </li>
 
         <li>
           <a href="#faq"
-             class="relative inline-block text-slate-700
+             class="relative inline-block rounded-lg px-2 py-1 text-sm font-medium text-slate-600 transition sm:px-0 sm:py-0
                     after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[2px]
                     after:bg-[#5B4AF2] after:origin-left after:scale-x-0
                     after:transition-transform after:duration-300
-                    hover:text-[#5B4AF2] hover:after:scale-x-100">
+                    hover:bg-slate-50 hover:text-[#5B4AF2] hover:after:scale-x-100 sm:hover:bg-transparent">
             Preguntas
           </a>
         </li>
 
         <li>
           <a href="#testi"
-             class="relative inline-block text-slate-700
+             class="relative inline-block rounded-lg px-2 py-1 text-sm font-medium text-slate-600 transition sm:px-0 sm:py-0
                     after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[2px]
                     after:bg-[#5B4AF2] after:origin-left after:scale-x-0
                     after:transition-transform after:duration-300
-                    hover:text-[#5B4AF2] hover:after:scale-x-100">
+                    hover:bg-slate-50 hover:text-[#5B4AF2] hover:after:scale-x-100 sm:hover:bg-transparent">
             Testimonios
           </a>
         </li>
 
         <!-- Botón móvil dentro del menú -->
-        <li class="sm:hidden pt-2">
+        <li class="pt-2 sm:hidden">
           <a href="#contacto"
-             class="mx-auto inline-flex items-center justify-center
-                    px-4 py-2 rounded-md text-xs font-medium text-white
-                    shadow-inner bg-gradient-to-b
-                    from-[#5B4AF2] via-[#5B4AF2] to-[#5B4AF2]
+             class="mx-auto inline-flex w-full items-center justify-center rounded-xl
+                    px-4 py-3 text-sm font-semibold text-white
+                    shadow-lg shadow-violet-500/20 bg-gradient-to-r
+                    from-[#6b5bff] to-[#4f3ee5]
                     hover:brightness-105 active:scale-95 transition">
             Contáctanos
           </a>
@@ -99,12 +101,12 @@
 
     <!-- Botón escritorio -->
     <a href="#contacto"
-       class="hidden sm:inline-flex items-center justify-center
-              px-4 sm:px-5 py-2 text-xs sm:text-sm font-medium text-white
-              rounded-md shadow-inner
-              bg-gradient-to-b from-[#5B4AF2] via-[#5B4AF2] to-[#5B4AF2]
-              hover:brightness-105 active:scale-95 transition">
+       class="hidden sm:inline-flex items-center justify-center rounded-xl border border-violet-400/10
+              bg-gradient-to-r from-[#6b5bff] to-[#4f3ee5] px-4 py-2.5 text-sm font-semibold text-white
+              shadow-[0_18px_30px_-18px_rgba(91,74,242,0.55)]
+              transition hover:-translate-y-0.5 hover:brightness-105 active:scale-95">
       Contáctanos
     </a>
+    </div>
   </div>
 </header>

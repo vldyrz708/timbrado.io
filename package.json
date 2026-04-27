@@ -46,10 +46,9 @@
   "private": true,
 
   "scripts": {
- 
-    "develop": "gulp develop",
-    "serve": "gulp serveDist",
-    "build": "gulp default"
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "npx browser-sync start --server dist --files dist --no-open --no-notify"
   },
 
   "eslintConfig": {

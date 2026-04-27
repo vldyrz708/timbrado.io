@@ -1,58 +1,61 @@
-<section id="cta" data-aos="fade-up" class="py-20 md:py-24">
-  <div class="mx-auto max-w-6xl px-4">
-    <div class="relative overflow-hidden rounded-3xl shadow-lg
-             bg-[url('images/cuadros.png')] bg-top bg-no-repeat bg-cover
-             flex flex-col gap-10 sm:gap-12 lg:flex-row lg:gap-16
-             p-6 sm:p-10 lg:p-16
-             min-h-[28rem] sm:min-h-[30rem] lg:min-h-[32rem]
-             animate-[float_10s_ease-in-out_infinite]">
+<section id="cta" data-aos="fade-up" class="px-4 py-20 md:px-6 md:py-24 lg:px-8">
+  <div class="mx-auto max-w-6xl">
+    <div class="relative flex min-h-[28rem] flex-col gap-8 overflow-hidden rounded-[2rem] border border-slate-200 bg-[url('images/cuadros.png')] bg-cover bg-top bg-no-repeat p-6 shadow-[0_30px_80px_-35px_rgba(15,23,42,0.4)] sm:gap-10 sm:p-10 lg:min-h-[32rem] lg:flex-row lg:gap-16 lg:p-16">
 
       <!-- overlay: violeta claro → transparente -------------------- -->
-      <div class="pointer-events-none absolute inset-0
-                  bg-gradient-to-b from-[#e8e8e8]/60 via-[#e8e8e8]/30 to-transparent">
+      <div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/80 via-slate-100/60 to-white/20">
       </div>
 
       <!-- TEXTO ----------------------------------------------------- -->
-      <div class="relative z-10 flex-1 max-w-none lg:max-w-md text-left">
-        <h3 class="font-roboto text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-slate-900">
+      <div class="relative z-10 max-w-none flex-1 text-left lg:max-w-md">
+        <span class="inline-flex rounded-full border border-violet-100 bg-white/80 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm">
+          Implementación más simple
+        </span>
+        <h3 class="mt-6 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl [font-family:'Manrope',sans-serif]">
           ¿Estás listo para dejar atrás el caos administrativo?
         </h3>
-        <p class="mt-6 text-base sm:text-lg text-slate-600 max-w-lg">
+        <p class="mt-6 max-w-lg text-base leading-8 text-slate-600 sm:text-lg">
           Ya seas una startup, una pyme o un corporativo, Timbrado.io está diseñado para ayudarte a:
         </p>
+        <div class="mt-8 grid gap-3 sm:grid-cols-2">
+          <div class="rounded-2xl border border-white/70 bg-white/70 p-4 backdrop-blur">
+            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-violet-600">Resultado</p>
+            <p class="mt-2 text-sm leading-6 text-slate-600">Más orden documental y mejor coordinación operativa.</p>
+          </div>
+          <div class="rounded-2xl border border-white/70 bg-white/70 p-4 backdrop-blur">
+            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-violet-600">Impacto</p>
+            <p class="mt-2 text-sm leading-6 text-slate-600">Menos seguimiento manual y decisiones más rápidas.</p>
+          </div>
+        </div>
       </div>
 
       <!-- LISTA + BOTÓN -------------------------------------------- -->
-      <div class="relative z-10 w-full max-w-sm flex flex-col gap-6
-               rounded-xl bg-white/80 backdrop-blur p-5 sm:p-7">
+      <div class="relative z-10 flex w-full max-w-xl flex-col gap-6 self-center rounded-[1.5rem] border border-white/70 bg-white/85 p-5 shadow-xl backdrop-blur sm:p-7 lg:max-w-sm">
 
-       <ul class="space-y-3 text-left text-sm sm:text-base">
+       <ul class="space-y-4 text-left text-sm text-slate-700 sm:text-base">
          <li class="flex gap-3">
-           <img src="images/icon/check.svg" alt="" class="h-5 w-5 flex-none text-[#5B4AF2]" />
+           <img src="images/icon/check.svg" alt="" class="mt-0.5 h-5 w-5 flex-none" />
            Automatiza procesos repetitivos
          </li>
 
          <li class="flex gap-3">
-           <img src="images/icon/check.svg" alt="" class="h-5 w-5 flex-none text-[#5B4AF2]" />
+           <img src="images/icon/check.svg" alt="" class="mt-0.5 h-5 w-5 flex-none" />
            Tener un control total de tus documentos fiscales
          </li>
 
          <li class="flex gap-3">
-           <img src="images/icon/check.svg" alt="" class="h-5 w-5 flex-none text-[#5B4AF2]" />
+           <img src="images/icon/check.svg" alt="" class="mt-0.5 h-5 w-5 flex-none" />
            Visualizar tu salud financiera en un solo clic
          </li>
 
          <li class="flex gap-3">
-           <img src="images/icon/check.svg" alt="" class="h-5 w-5 flex-none text-[#5B4AF2]" />
+           <img src="images/icon/check.svg" alt="" class="mt-0.5 h-5 w-5 flex-none" />
            Colaborar con todo tu equipo sin duplicar esfuerzos
          </li>
        </ul>
 
         <a href="#contacto"
-           class="inline-flex items-center justify-center w-full
-                  rounded px-6 py-3 text-sm font-medium
-                  text-white bg-[#5B4AF2]
-                  hover:bg-[#4837d4] active:scale-95 transition">
+           class="inline-flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-[#6b5bff] to-[#4f3ee5] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/20 transition hover:-translate-y-0.5 hover:brightness-105">
           Comencemos
         </a>
 
