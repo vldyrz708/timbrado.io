@@ -3,8 +3,6 @@ dist/
 .tmp
 app.yaml
 /.idea/
-/qrsof-site.zip
 /package-lock.json
-/qrsof-site.iml
 .yarn
 docs
