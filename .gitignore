@@ -3,6 +3,6 @@ dist/
 .tmp
 app.yaml
 /.idea/
-/package-lock.json
 .yarn
 docs
+.vercel
